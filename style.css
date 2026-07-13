@@ -21,8 +21,6 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0,0,0,.8);
-    backdrop-filter: blur(10px);
     z-index: 1000;
 }
 
@@ -60,9 +58,7 @@ header{
 .home{
     position: relative;
     width: 100%;
-    padding: 6rem 5% 4rem;
-    margin-top: 50px;
-    /* height: 100vh; */
+    height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -229,7 +225,7 @@ header{
         opacity: 1;
     }
 }
-
+/* ============ Mobile menu icon (hidden until small screens) ============ */
 #menu-icon{
     display: none;
     font-size: 2rem;
@@ -238,7 +234,7 @@ header{
     z-index: 10001;
 }
 
-
+/* ============ Shared section styling ============ */
 section{
     padding: 6rem 5% 4rem;
 }
@@ -255,17 +251,13 @@ section{
     color: rgb(112, 209, 177);
 }
 
-
-.about{
-    padding: 6rem 5% 4rem;
-}
-
+/* ============ About ============ */
 .about-container{
-    display:flex;
-    align-items:center;
-    justify-content:space-around;
-    gap:3rem;
-    flex-wrap:wrap;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3rem;
 }
 
 .about-img img{
@@ -293,7 +285,7 @@ section{
     margin-bottom: 1.5rem;
 }
 
-
+/* ============ Skills ============ */
 .skills-container{
     display: flex;
     flex-wrap: wrap;
@@ -343,6 +335,7 @@ section{
     border-radius: 5px;
 }
 
+/* ============ Contact ============ */
 .contact form{
     max-width: 700px;
     margin: 0 auto;
@@ -384,7 +377,7 @@ section{
     font-family: inherit;
 }
 
-
+/* ============ Footer ============ */
 .footer{
     text-align: center;
     padding: 1.5rem 5%;
@@ -393,6 +386,9 @@ section{
     border-top: 1px solid #222;
 }
 
+/* ============================================================
+   Responsive breakpoints
+   ============================================================ */
 @media (max-width: 991px){
     body{
         padding: 1rem 3%;
@@ -468,9 +464,10 @@ section{
         height: auto;
     }
 
-    .about-container{
-    flex-direction: column;
-    text-align: center;
+    .about{
+        flex-direction: column;
+        text-align: center;
+        padding-top: 4rem;
     }
 
     .about-img img{

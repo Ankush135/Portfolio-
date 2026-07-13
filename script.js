@@ -16,6 +16,7 @@ if (menuIcon && navbar) {
         navbar.classList.toggle('active');
     });
 
+    // Close the mobile menu after a nav link is tapped
     navbar.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             menuIcon.classList.remove('bx-x');
