@@ -6,7 +6,7 @@ var typed = new Typed(".multiple-text", {
     loop: true
 });
 
-// Mobile menu toggle
+
 const menuIcon = document.querySelector('#menu-icon');
 const navbar = document.querySelector('.navbar');
 
@@ -16,7 +16,6 @@ if (menuIcon && navbar) {
         navbar.classList.toggle('active');
     });
 
-    // Close the mobile menu after a nav link is tapped
     navbar.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             menuIcon.classList.remove('bx-x');
@@ -25,6 +24,50 @@ if (menuIcon && navbar) {
     });
 }
 
-// Footer year
 const yearEl = document.querySelector('#year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+
+const PUBLIC_KEY = "PaktW0OTJH687MdRC";
+const SERVICE_ID = "service_kax21xs";
+const TEMPLATE_ID = "template_m9g7k42";
+
+emailjs.init(PUBLIC_KEY);
+
+const contactForm = document.getElementById("contact-form");
+
+contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const btn = contactForm.querySelector(".btn");
+
+    btn.disabled = true;
+    btn.innerHTML = "Sending...";
+
+    const templateParams = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+    };
+
+    emailjs
+        .send(SERVICE_ID, TEMPLATE_ID, templateParams)
+        .then(() => {
+            alert("Message sent successfully!");
+
+            contactForm.reset();
+
+            btn.disabled = false;
+            btn.innerHTML = "Send Message";
+        })
+        .catch((error) => {
+            console.error(error);
+
+            alert("Failed to send message.");
+
+            btn.disabled = false;
+            btn.innerHTML = "Send Message";
+        });
+});
