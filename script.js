@@ -74,7 +74,6 @@ if (contactForm && typeof emailjs !== "undefined") {
     });
 }
 
-// Scroll-to-top button
 const scrollTopBtn = document.getElementById('scrollTopBtn');
 if (scrollTopBtn) {
     window.addEventListener('scroll', () => {

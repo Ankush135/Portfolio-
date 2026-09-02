@@ -36,14 +36,14 @@ header {
 }
 
 .navbar a {
-  position: relative; /* ADDED: Anchors the line to the link */
+  position: relative;
   font-size: 1.2rem;
   text-decoration: none;
   color: white;
-  padding: 0.5rem 0; /* CHANGED: Adjusted padding so line sits nicely below text */
+  padding: 0.5rem 0;
   font-weight: 500;
   transition: 0.3s;
-  margin-left: 2rem; /* CHANGED: Replaced left-padding with margin for spacing */
+  margin-left: 2rem;
   opacity: 0;
   animation: slideTop 1s ease-in-out forwards;
   animation-delay: calc(0.2s * var(--i));
@@ -53,21 +53,19 @@ header {
   color: rgb(112, 209, 177);
 }
 
-/* NEW: Creates the animated line below each link */
 .navbar a::after {
   content: '';
   position: absolute;
   width: 100%;
-  height: 2px; /* Thickness of the line */
-  bottom: 0; /* Positions it at the bottom of the link */
+  height: 2px;
+  bottom: 0;
   left: 0;
-  background-color: rgb(112, 209, 177); /* Matches your hover color */
-  transform: scaleX(0); /* Starts invisible (0 width) */
+  background-color: rgb(112, 209, 177);
+  transform: scaleX(0);
   transform-origin: bottom right;
-  transition: transform 0.3s ease-in-out; /* Smooth growth animation */
+  transition: transform 0.3s ease-in-out;
 }
 
-/* NEW: Expands the line to 100% width on hover */
 .navbar a:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
@@ -524,7 +522,6 @@ section {
   line-height: 1.6;
 }
 
-/* ============ Footer ============ */
 .footer {
   background: #0a0a0a;
   border-top: 1px solid #222;
@@ -622,7 +619,6 @@ section {
   font-size: 0.85rem;
 }
 
-/* ============ Scroll-to-top button ============ */
 #scrollTopBtn {
   position: fixed;
   right: 24px;
