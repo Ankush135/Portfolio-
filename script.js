@@ -32,42 +32,57 @@ const PUBLIC_KEY = "PaktW0OTJH687MdRC";
 const SERVICE_ID = "service_kax21xs";
 const TEMPLATE_ID = "template_m9g7k42";
 
-emailjs.init(PUBLIC_KEY);
-
 const contactForm = document.getElementById("contact-form");
 
-contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+if (contactForm && typeof emailjs !== "undefined") {
+    emailjs.init(PUBLIC_KEY);
 
-    const btn = contactForm.querySelector(".btn");
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    btn.disabled = true;
-    btn.innerHTML = "Sending...";
+        const btn = contactForm.querySelector(".btn");
 
-    const templateParams = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        phone: document.getElementById("phone").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value,
-    };
+        btn.disabled = true;
+        btn.innerHTML = "Sending...";
 
-    emailjs
-        .send(SERVICE_ID, TEMPLATE_ID, templateParams)
-        .then(() => {
-            alert("Message sent successfully!");
+        const templateParams = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
+        };
 
-            contactForm.reset();
+        emailjs
+            .send(SERVICE_ID, TEMPLATE_ID, templateParams)
+            .then(() => {
+                alert("Message sent successfully!");
 
-            btn.disabled = false;
-            btn.innerHTML = "Send Message";
-        })
-        .catch((error) => {
-            console.error(error);
+                contactForm.reset();
 
-            alert("Failed to send message.");
+                btn.disabled = false;
+                btn.innerHTML = "Send Message";
+            })
+            .catch((error) => {
+                console.error(error);
 
-            btn.disabled = false;
-            btn.innerHTML = "Send Message";
-        });
-});
+                alert("Failed to send message.");
+
+                btn.disabled = false;
+                btn.innerHTML = "Send Message";
+            });
+    });
+}
+
+// Scroll-to-top button
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+if (scrollTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) scrollTopBtn.classList.add('show');
+        else scrollTopBtn.classList.remove('show');
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
