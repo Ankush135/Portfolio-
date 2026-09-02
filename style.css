@@ -28,11 +28,16 @@ header {
 .logo {
   font-size: 1.5rem;
   color: white;
-  text-transform: uppercase;
   text-decoration: none;
   font-weight: 700;
+  letter-spacing: 1px;
   opacity: 0;
   animation: slideRight 1s ease-in-out forwards;
+}
+
+.logo-bracket {
+  color: rgb(112, 209, 177);
+  font-weight: 400;
 }
 
 .navbar a {
